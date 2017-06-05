@@ -26,7 +26,7 @@ void solve_equation(solution *sol, float a,float b,float c) {
         	} else {
 			if(d == 0) {
  				sol->solution_case=2;
-				sol->x1=-c/b;
+				sol->x1=-b/(2*a);
 			} else {
 				sol->solution_case=3;
 				sol->x1=(-b+sqrt(d))/(2*a);
