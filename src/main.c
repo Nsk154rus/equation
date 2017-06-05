@@ -19,8 +19,20 @@ void solve_equation(solution *sol, float a,float b,float c) {
 			sol->x1=-c/b;
 		}
 	} else {
-		float d, x1, x2;
+		float d;
 		d = calc_discr(a,b,c);
+		if(d < 0) {
+			sol->solution_case=1;
+        	} else {
+			if(d == 0) {
+ 				sol->solution_case=2;
+				sol->x1=-c/b;
+			} else {
+				sol->solution_case=3;
+				sol->x1=(-b+sqrt(d))/(2*a);
+				sol->x2=(-b-sqrt(d))/(2*a);
+            		}
+        	}
     	}	
 } 
 
@@ -34,6 +46,9 @@ void print_solution (solution *sol) {
 			break;
 		case 2:
 			printf("X = %f \n",sol->x1);
+			break;
+		case 3:
+			printf("X1 = %f, X2 = %f \n",sol->x1,sol->x2);
 			break;
 		default:
 			break;
