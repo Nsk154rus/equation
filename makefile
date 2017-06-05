@@ -1,3 +1,2 @@
 main:
-	gcc -Wall -o bin/main src/main.c -lm
- 
+	gcc -Wall -o bin/main src/functions.c src/main.c -lm
