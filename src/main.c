@@ -2,6 +2,10 @@
 #include <math.h>
 #include "main.h"
 
+float calc_discr (float a,float b,float c) {
+	float d = b * b - 4 * a * c;
+	return d;
+}
 void solve_equation(solution *sol, float a,float b,float c) {
 	if (a==0) {
 		if (b==0) {
@@ -14,7 +18,10 @@ void solve_equation(solution *sol, float a,float b,float c) {
 			sol->solution_case=2;
 			sol->x1=-c/b;
 		}
-	}	
+	} else {
+		float d, x1, x2;
+		d = calc_discr(a,b,c);
+    	}	
 } 
 
 void print_solution (solution *sol) {
