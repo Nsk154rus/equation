@@ -3,13 +3,34 @@
 #include "main.h"
 
 void solve_equation(solution *sol, float a,float b,float c) {
-	sol->solution_case=0;
-	sol->x1=0;
-	sol->x2=0;	
+	if (a==0) {
+		if (b==0) {
+			if (c==0) {
+				sol->solution_case=0;
+			} else {
+				sol->solution_case=1;
+			}
+		} else {
+			sol->solution_case=2;
+			sol->x1=-c/b;
+		}
+	}	
 } 
 
 void print_solution (solution *sol) {
-	printf("Случай: %d X1: %f  X2: %f \n",sol->solution_case,sol->x1,sol->x2);
+	switch (sol->solution_case) {
+		case 0:
+			printf("X - любое число \n");
+			break;
+		case 1:
+			printf("Корней нет \n");
+			break;
+		case 2:
+			printf("X = %f \n",sol->x1);
+			break;
+		default:
+			break;
+	}	
 }
 
 int main()
@@ -18,6 +39,7 @@ int main()
 	printf("Введите A, B, C \n");
 	scanf("%f %f %f", &a, &b, &c);
 	solution my_solution;
+	my_solution.solution_case=-1;
 	solve_equation(&my_solution, a,b,c);
 	print_solution(&my_solution);
 	return 0;
