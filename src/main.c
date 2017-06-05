@@ -1,5 +1,9 @@
 #include <stdio.h>
-int main() {
-	printf("Hello world\n");
-	return 0;
+#include <math.h>
+int main()
+{
+    float a,b,c;
+    printf("Введите A, B, C \n");
+    scanf("%f %f %f", &a, &b, &c);
+    return 0;
 }
